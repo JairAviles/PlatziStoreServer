@@ -17,28 +17,28 @@ fun Route.productList() {
                     "Harrington",
                     "Harrington Jacket",
                     225.00 + it,
-                    "http://localhost:8080/img/harrington.jpg"))
+                    "http://http://10.0.3.2:8080/img/harrington.jpg"))
 
             products.add(Product((Math.random() * 1000).toInt(),
                     "jeans",
                     "Jens",
                     "Levis Jeans 501",
                     175.00 + it,
-                    "http://localhost:8080/img/jeans.jpg"))
+                    "http://10.0.3.2:8080/img/jeans.jpg"))
 
             products.add(Product((Math.random() * 1000).toInt(),
                     "monkey_boots",
                     "Monkey Boots",
                     "Monkey Boots",
                     300.00 + it,
-                    "http://localhost:8080/img/monkey_boots.jpg"))
+                    "http://10.0.3.2:8080/img/monkey_boots.jpg"))
 
             products.add(Product((Math.random() * 1000).toInt(),
                     "polo",
                     "Polo T-Shirt",
                     "Fred Perry Polo T-Shirt",
                     300.00 + it,
-                    "http://localhost:8080/img/polo.jpg"))
+                    "http://10.0.3.2:8080/img/polo.jpg"))
         }
 
         val payload = ResponseJson(statusCode = HttpStatusCode.OK.value, payload = products)
