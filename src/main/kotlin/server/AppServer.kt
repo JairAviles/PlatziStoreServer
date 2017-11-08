@@ -4,6 +4,8 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import org.jetbrains.ktor.application.Application
 import org.jetbrains.ktor.application.install
+import org.jetbrains.ktor.content.files
+import org.jetbrains.ktor.content.static
 import org.jetbrains.ktor.features.CallLogging
 import org.jetbrains.ktor.features.DefaultHeaders
 import org.jetbrains.ktor.http.ContentType
@@ -20,6 +22,10 @@ fun Application.main()  {
 
     routing {
 
+        static("static") {
+            files("images/")
+        }
+
         get("/me") {
             val name: String? = call.request.queryParameters["name"]
             val age: String? = call.request.queryParameters["age"]
@@ -31,7 +37,7 @@ fun Application.main()  {
                 } catch (e: NumberFormatException) {
                     0
                 }
-                val me: Person = Person(name, ageTemp.toInt())
+                val me = Person(name, ageTemp)
                 val jsonRes = gson.toJson(me)
                 call.respondText(jsonRes, ContentType.Application.Json, HttpStatusCode.OK)
 
@@ -49,6 +55,10 @@ fun Application.main()  {
             print(messagePost)
             call.respondText("Ok", ContentType.Text.Html, HttpStatusCode.OK)
         }
+
+        getImages()
+
+        productList()
 
     }
 
