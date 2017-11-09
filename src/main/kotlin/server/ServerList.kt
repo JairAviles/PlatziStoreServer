@@ -17,7 +17,7 @@ fun Route.productList() {
                     "Harrington",
                     "Harrington Jacket",
                     225.00 + it,
-                    "http://http://10.0.3.2:8080/img/harrington.jpg"))
+                    "http://10.0.3.2:8080/img/harrington.jpg"))
 
             products.add(Product((Math.random() * 1000).toInt(),
                     "jeans",
